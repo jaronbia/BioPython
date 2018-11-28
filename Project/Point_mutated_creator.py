@@ -1,6 +1,6 @@
 '''
 Name: George Tsai
-Project: NucleicAcid Class
+Project: Point_mutated_creator
 Date: 11/23/2018
 Copyrighted Year: 2018
 '''
