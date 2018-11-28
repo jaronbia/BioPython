@@ -1,6 +1,6 @@
 '''
 Name: George Tsai
-Project: NucleicAcid Class
+Project: PrimerDesign
 Date: 11/23/2018
 Copyrighted Year: 2018
 '''
