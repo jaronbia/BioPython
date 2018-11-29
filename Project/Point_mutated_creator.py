@@ -1,37 +1,3 @@
-'''
-Name: George Tsai
-Project: Point_mutated_creator
-Date: 11/23/2018
-Copyrighted Year: 2018
-'''
-
-
-'''
-for i in range(5):
-    for j in range(5):
-        print(i, j)
-
-l=[]
-for i in range(5):
-    for j in range(5):
-        subl=[i, j]
-        l.append(subl)
-print(l)
-
-for i in range(len(l)):
-    l[i].append(i)
-
-print(l)
-print(len(l))
-print(min(l))
-
-l=[["a", "b", 20], ["c", "d", 10], ["e", "f", 5]]
-for i in range(len(l)):
-    l[i].insert(0, i)
-print(l)
-print(max(l))
-print(min(l))
-'''
 
 def str_format(seq=None):
     str = ""

@@ -5,10 +5,8 @@ Date: 11/23/2018
 Copyrighted Year: 2018
 '''
 
-
 from Bio.Seq import Seq
 import random
-
 
 class NucleicAcid:
     def __init__(self, seq):
@@ -131,6 +129,29 @@ class RNA(NucleicAcid): # Current version of RNA class represents mRNA
 
         return mutations(mutation_list)
 
+def str_format(seq=None):
+    str = ''
+    for i in range(len(seq)):
+        if seq[i] is not "\n":
+            str += seq[i]
+    return str
+
+def adjust_frame(string = None, start = None, end = None):
+    new_start = start - start%3
+    new_end = end + end%3
+    i = 0
+    if new_start > 9:
+        i = 5
+        print(new_start, " " * ((new_end - new_start) - i), new_end)
+    elif new_start > 99:
+        i = 6
+        print(new_start, " " * ((new_end - new_start) - i), new_end)
+    else :
+        i = 4
+        print(new_start, " " * ((new_end - new_start) - i), new_end)
+    print("|", " "*((new_end-new_start)-3), "|")
+    print(string[new_start:new_end+1])
+    return string[new_start:new_end+1]
 
 '''
 x = Seq("ATCGATCG")
@@ -151,9 +172,40 @@ y = Seq("AUCGAUCGUAACGUUGGG")
 rna_unknown_seq = RNA(y)
 mutations = rna_unknown_seq.compare_for_mutations("GUCGAUCGUAACGUUGGA")
 print(rna_unknown_seq.compare_for_mutations("GUCGAUCGUAACGUUGGA"))
+'''
+'''
+handle = open("Homo sapiens coagulation factor IX (F9) mRNA.txt", "r")
+o = Seq(handle.read())
+o = str_format(o)
 
-y = Seq("CCACTTTCA")
-rna_unknown_seq = RNA(y)
-mutations = rna_unknown_seq.compare_for_mutations("CGGCATACA")
-print(mutations)
+handle = open("Homo sapiens coagulation factor IX (F9) mutated mRNA.txt", "r")
+m = Seq(handle.read())
+m = str_format(m)
+rna_unknown_seq = RNA(o[0:217])
+mutation = rna_unknown_seq.compare_for_mutations(m[0:217])
+print(mutation)
+'''
+'''
+handle = open("Homo sapiens tumor protein p53 (TP53) mRNA.txt", "r")
+o = Seq(handle.read())
+o = str_format(o)
+
+handle = open("Homo sapiens tumor protein p53 (TP53) mutated mRNA.txt", "r")
+m = Seq(handle.read())
+m = str_format(m)
+rna_unknown_seq = RNA(o[0:250])
+mutation = rna_unknown_seq.compare_for_mutations(m[0:250])
+print(mutation)
+'''
+'''
+handle = open("Homo sapiens hemoglobin subunit beta (HBB) mRNA.txt", "r")
+o = Seq(handle.read())
+o = str_format(o)
+
+handle = open("Homo sapiens hemoglobin subunit beta (HBB) mutated mRNA.txt", "r")
+m = Seq(handle.read())
+m = str_format(m)
+rna_unknown_seq = RNA(o[0:250])
+mutation = rna_unknown_seq.compare_for_mutations(m[0:250])
+print(mutation)
 '''
