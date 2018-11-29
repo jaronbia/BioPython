@@ -1,5 +1,5 @@
 from Bio.Seq import Seq
-from Project.NucleicAcid import RNA
+from NucleicAcid import RNA
 
 class Pcr_Primer:
     # PCR chemical reaction requirements as bellow:
